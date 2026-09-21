@@ -1,0 +1,12 @@
+# Local test artifacts
+tests/artifacts/
+
+# Netlify local state
+.netlify/
+
+# Archives
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db

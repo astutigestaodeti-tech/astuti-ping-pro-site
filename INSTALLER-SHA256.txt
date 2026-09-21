@@ -1,0 +1,2 @@
+AstutiPingProSetup.exe
+SHA256: 8ba9caa5a3f511a3c878c48c46e4d0ce5545c24d1b5d6ea52c9112679b16781c
