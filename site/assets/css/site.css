@@ -288,3 +288,21 @@ button{color:inherit}
   html{scroll-behavior:auto}
   *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
+
+
+/* Alinhamento das âncoras abaixo do cabeçalho fixo */
+#recursos,
+#relatorios,
+#preco,
+#faq {
+  scroll-margin-top: 96px;
+}
+
+@media (max-width: 600px) {
+  #recursos,
+  #relatorios,
+  #preco,
+  #faq {
+    scroll-margin-top: 82px;
+  }
+}
