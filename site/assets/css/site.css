@@ -306,3 +306,44 @@ button{color:inherit}
     scroll-margin-top: 82px;
   }
 }
+/* ===== Ajuste da seção Preço ===== */
+
+#preco {
+  scroll-margin-top: 96px;
+}
+
+.pricing-card,
+.price-card {
+  overflow: visible;
+  padding-top: 28px;
+}
+
+.pricing-card__price,
+.price-card__price,
+.pricing-card .price,
+.price-card .price {
+  line-height: 1.08;
+  padding-top: 6px;
+}
+
+.pricing-card__price strong,
+.price-card__price strong,
+.pricing-card .price strong,
+.price-card .price strong {
+  line-height: 1;
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  .pricing-card,
+  .price-card {
+    padding-top: 22px;
+  }
+
+  .pricing-card__price,
+  .price-card__price,
+  .pricing-card .price,
+  .price-card .price {
+    line-height: 1.05;
+  }
+}
