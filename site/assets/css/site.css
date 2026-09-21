@@ -347,3 +347,20 @@ button{color:inherit}
     line-height: 1.05;
   }
 }
+
+/* ===== Ajuste da página Suporte ===== */
+
+.support-hero {
+  padding-top: 40px !important;
+  padding-bottom: 56px;
+}
+
+.support-hero .section-heading,
+.support-hero .page-hero__content,
+.support-hero .hero-content {
+  margin-top: 0;
+}
+
+.support-hero h1 {
+  margin-top: 0;
+}
