@@ -588,3 +588,73 @@
     applySettings();
   });
 })();
+
+
+/* Correção precisa da navegação por âncoras */
+(() => {
+  const header = document.querySelector('.site-header');
+
+  const getHeaderOffset = () => {
+    const headerHeight = header?.getBoundingClientRect().height || 76;
+    return headerHeight + 20;
+  };
+
+  const getVisualTarget = section => {
+    if (!section) return null;
+
+    return (
+      section.querySelector('.section-heading') ||
+      section.querySelector('.pricing-intro') ||
+      section.querySelector('h1, h2') ||
+      section
+    );
+  };
+
+  const scrollToSection = (hash, updateUrl = true) => {
+    if (!hash || hash === '#') return;
+
+    const section = document.querySelector(hash);
+    if (!section) return;
+
+    const visualTarget = getVisualTarget(section);
+    if (!visualTarget) return;
+
+    const top =
+      window.scrollY +
+      visualTarget.getBoundingClientRect().top -
+      getHeaderOffset();
+
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior:
+        document.documentElement.classList.contains('astuti-a11y-reduce-motion') ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          ? 'auto'
+          : 'smooth'
+    });
+
+    if (updateUrl) {
+      history.pushState(null, '', hash);
+    }
+  };
+
+  document.querySelectorAll(
+    'a[href="#recursos"], a[href="#relatorios"], a[href="#preco"], a[href="#faq"]'
+  ).forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      scrollToSection(link.getAttribute('href'));
+    });
+  });
+
+  /* Também corrige acesso direto por URL com #recursos, #preco etc. */
+  if (
+    ['#recursos', '#relatorios', '#preco', '#faq'].includes(
+      window.location.hash
+    )
+  ) {
+    window.setTimeout(() => {
+      scrollToSection(window.location.hash, false);
+    }, 150);
+  }
+})();
